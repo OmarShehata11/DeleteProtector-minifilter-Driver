@@ -7,7 +7,8 @@ this is done by intercepting two types of IRP: **IRP_MJ_CREATE** & **IRP_MJ_SET_
 cmd apply this action by two ways, if one fails it will use the other:
 - the first is to open the file with DELETE_ON_CLOSE, then close the handle so the file will be deleted
 - if this failed, it will then try to call **NtSetInformationFile** with *FileInformationClass* set to *FileDispositionInformation* or *FileDispositionInformationEx*, then set the FILE_DISPOSITION_INFORMATION (or FILE_DISPOSITION_INFORMATION_EX) with the appropriate values.
-  
+
+
 So in the code you going to see that I registered a pre-callback to those two types of IRP and do the appropriate check to see if it came from the cmd and if it want to actually delete the file ..etc. and if all is right then stop the request from being passed to the file system driver.
 
 ### Note

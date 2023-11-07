@@ -12,4 +12,4 @@ cmd apply this action by two ways, if one fails it will use the other:
 So in the code you going to see that I registered a pre-callback to those two types of IRP and do the appropriate check to see if it came from the cmd and if it want to actually delete the file ..etc. and if all is right then stop the request from being passed to the file system driver.
 
 ### Note
-I'm checking the process name that if it contain the pass to cmd, of course you may notice that it's easy to avoid this driver by chaning the process name or run the cmd from different path, but I wrote this driver just to apply the needed concepts.
+I'm checking the process name that if it contain the path to cmd, of course you may notice that it's easy to avoid this driver by chaning the process name or run the cmd from different path, but I wrote this driver just to apply the needed concepts.
